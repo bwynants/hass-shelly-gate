@@ -1,0 +1,13 @@
+{
+  "domain": "shelly_gate",
+  "name": "Shelly Gate",
+  "codeowners": [
+    "@bwynants"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/bwynants/hass-shelly-gate",
+  "integration_type": "service",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/bwynants/hass-shelly-gate/issues",
+  "version": "1.0.0"
+}

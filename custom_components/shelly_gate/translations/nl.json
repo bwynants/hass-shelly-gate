@@ -1,0 +1,78 @@
+{
+  "title": "Shelly Gate",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Shelly Gate",
+        "description": "Maak een cover van een poortmotor met één impulsingang en zonder positieterugmelding. Elke impuls laat de motor de cyclus open → stop → dicht → stop doorlopen; de positie wordt berekend uit de looptijden die je daarna instelt.",
+        "data": {
+          "name": "Naam",
+          "trigger_entity": "Impulsuitgang",
+          "button_entity": "Wandknop",
+          "device_class": "Type"
+        },
+        "data_description": {
+          "name": "Naam van de cover-entiteit, bijvoorbeeld Garage Tuin.",
+          "trigger_entity": "De uitgang op de drukknopingang van de motor. Een switch wordt kort aan- en uitgezet; een button of script wordt gewoon uitgevoerd.",
+          "button_entity": "Optioneel. De ingang die een druk op de fysieke wandknop meldt, zodat de cover ook presses volgt die hij zelf niet gaf.",
+          "device_class": "Bepaalt het icoon en de woordkeuze van de cover."
+        }
+      },
+      "reconfigure": {
+        "title": "Shelly Gate",
+        "description": "Pas de naam of de gebruikte entiteiten aan.",
+        "data": {
+          "name": "Naam",
+          "trigger_entity": "Impulsuitgang",
+          "button_entity": "Wandknop",
+          "device_class": "Type"
+        },
+        "data_description": {
+          "name": "Naam van de cover-entiteit.",
+          "trigger_entity": "De uitgang op de drukknopingang van de motor.",
+          "button_entity": "Optioneel. De ingang die een druk op de fysieke wandknop meldt.",
+          "device_class": "Bepaalt het icoon en de woordkeuze van de cover."
+        }
+      }
+    },
+    "error": {
+      "same_entity": "De wandknop mag niet dezelfde entiteit zijn als de impulsuitgang."
+    },
+    "abort": {
+      "already_configured": "Die impulsuitgang wordt al door een andere poort gebruikt.",
+      "reconfigure_successful": "De poort is bijgewerkt."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Shelly Gate looptijden",
+        "description": "Klok de poort met een stopwatch en vul in wat je meet. De positie wordt hieruit berekend, dus deze waarden bepalen de nauwkeurigheid.",
+        "data": {
+          "travel_up_seconds": "Openingstijd",
+          "travel_down_seconds": "Sluitingstijd",
+          "pulse_seconds": "Impulsduur",
+          "pulse_gap_seconds": "Pauze tussen impulsen"
+        },
+        "data_description": {
+          "travel_up_seconds": "Hoelang de poort doet over volledig dicht naar volledig open.",
+          "travel_down_seconds": "Hoelang de poort doet over volledig open naar volledig dicht.",
+          "pulse_seconds": "Hoelang de uitgang aan blijft om als één druk te gelden. Niet van toepassing bij een button of script.",
+          "pulse_gap_seconds": "Hoelang wachten tussen impulsen wanneer er meerdere nodig zijn om de motor de juiste richting in te krijgen. Te kort en de motor negeert ze."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_class": {
+      "options": {
+        "garage": "Garagepoort",
+        "gate": "Poort",
+        "door": "Deur",
+        "shutter": "Rolluik",
+        "awning": "Zonnescherm",
+        "curtain": "Gordijn"
+      }
+    }
+  }
+}

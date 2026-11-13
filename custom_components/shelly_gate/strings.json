@@ -1,0 +1,78 @@
+{
+  "title": "Shelly Gate",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Shelly Gate",
+        "description": "Build a cover out of a gate operator that has a single momentary input and no position feedback. Every trigger advances the operator through open → stop → close → stop, and the position is worked out from the travel times you set afterwards.",
+        "data": {
+          "name": "Name",
+          "trigger_entity": "Trigger",
+          "button_entity": "Wall button",
+          "device_class": "Type"
+        },
+        "data_description": {
+          "name": "Name of the cover entity, for example Garage Tuin.",
+          "trigger_entity": "The output wired to the operator's push-button input. A switch is pulsed on and off again; a button or script is simply fired.",
+          "button_entity": "Optional. The input that reports a press on the physical wall button, so the cover follows presses it did not make itself.",
+          "device_class": "Decides the icon and the wording used for the cover."
+        }
+      },
+      "reconfigure": {
+        "title": "Shelly Gate",
+        "description": "Change the name or the entities this gate is built from.",
+        "data": {
+          "name": "Name",
+          "trigger_entity": "Trigger",
+          "button_entity": "Wall button",
+          "device_class": "Type"
+        },
+        "data_description": {
+          "name": "Name of the cover entity.",
+          "trigger_entity": "The output wired to the operator's push-button input.",
+          "button_entity": "Optional. The input that reports a press on the physical wall button.",
+          "device_class": "Decides the icon and the wording used for the cover."
+        }
+      }
+    },
+    "error": {
+      "same_entity": "The wall button cannot be the same entity as the trigger."
+    },
+    "abort": {
+      "already_configured": "That trigger is already used by another gate.",
+      "reconfigure_successful": "The gate was updated."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Shelly Gate timings",
+        "description": "Time the gate with a stopwatch and enter what you measured. The position is dead-reckoned from these values, so they are what makes it accurate.",
+        "data": {
+          "travel_up_seconds": "Opening time",
+          "travel_down_seconds": "Closing time",
+          "pulse_seconds": "Pulse length",
+          "pulse_gap_seconds": "Gap between pulses"
+        },
+        "data_description": {
+          "travel_up_seconds": "How long the gate takes to travel from fully closed to fully open.",
+          "travel_down_seconds": "How long the gate takes to travel from fully open to fully closed.",
+          "pulse_seconds": "How long the trigger is held on to register as one press. Ignored for a button or script trigger.",
+          "pulse_gap_seconds": "How long to wait between presses when several are needed to get the operator moving the right way. Too short and the operator ignores them."
+        }
+      }
+    }
+  },
+  "selector": {
+    "device_class": {
+      "options": {
+        "garage": "Garage door",
+        "gate": "Gate",
+        "door": "Door",
+        "shutter": "Shutter",
+        "awning": "Awning",
+        "curtain": "Curtain"
+      }
+    }
+  }
+}
